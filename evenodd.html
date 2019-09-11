@@ -1,0 +1,29 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Even odd</title>
+    <script type="text/javascript">
+      function Even()
+      {
+             var num = document.Check.number.value;
+              if ( num % 2 == 0)
+              {
+                   document.write(num + ' is a Even number');
+               }
+               else
+               {
+                   document.write(num + ' is a Odd number');
+               }
+       }
+    </script>
+  </head>
+  <body>
+
+    <form name="Check" method="post" onsubmit="return Even()">
+Check number: <input type="text" name="number" value=""><br>
+		  <input type="submit" value="check"><br>
+</form>
+
+  </body>
+</html>

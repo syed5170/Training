@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    Name : <input type="text" id="name"><br><br>
+    Age :  <input type="number" id="age" min=0 max=150><br><br>
+    Course : <select id="course">
+      <option value="B.E./B.Tech">B.E./B.Tech</option>
+      <option value="M.Tech">M.Tech</option>
+      <option value="B.C.A.">B.C.A.</option>
+      <option value="M.C.A.">M.C.A.</option>
+    </select><br><br>
+    Gender : <br>
+    <input type="radio" name="gender" value="Male">Male<br>
+    <input type="radio" name="gender" value="Female">Female<br><br>
+    Language : <br>
+    <input type="checkbox" name="lang" value="English">English<br>
+    <input type="checkbox" name="lang" value="French">French<br>
+    <input type="checkbox" name="lang" value="Hindi">Hindi<br><br>
+    About :   <br>
+    <textarea id="about" rows="8" cols="80"></textarea><br><br>
+    <button type="button" name="button" onclick="validate()">Register</button>
+  </body>
+  <script type="text/javascript">
+    function validate(){
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var details = "";
+      if(name==""){
+        alert("Please enter the name");
+        return;
+      }
+      else{
+        details += "Name : "+name+"<br>";
+      }
+      if(age==""){
+        alert("Please enter the age");
+        return;
+      }
+      else details += "Age : "+age+"<br>";
+      var gender = document.getElementsByName("gender");
+      if(gender[0].checked)
+      details += "Gender : "+gender[0].value+"<br>";
+      else
+      {
+        alert ("Please Select Gender !!!");
+      }
+      //  var c = document.getElementById("course").options.item(0).text;
+
+    var e = document.getElementById("course");
+    var result = e.options[e.selectedIndex].value;
+    details += "Course : "+result +"<br>";
+
+    var language=new Array();
+    var language = document.getElementsByName('lang');
+    if(!language[0].checked && !language[1].checked && !language[2].checked)
+    {
+      alert("Select Atleast One Language !!!");
+      return;
+    }
+    details += "Language :  ";
+    if(language[0].checked)
+      details += language[0].value+ " " ;
+    if(language[1].checked)
+      details += language[1].value+ " " ;
+    if(language[2].checked)
+      details += language[2].value+ " " ;
+    details += "<br>";
+    var x = document.getElementById("about").value;
+    if(x!=undefined)
+    details += "About : "+x+"<br>";
+    else
+    {
+      alert ("Write Something About You !!!");
+    }
+
+    document.write(details);
+  }
+      </script>
+</html>
